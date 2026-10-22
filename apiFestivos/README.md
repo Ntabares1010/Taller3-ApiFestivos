@@ -1,6 +1,6 @@
 # API Festivos (Express + MongoDB)
 
-Servicio web que valida si una fecha es festiva en Colombia, usando la base de datos `Festivos`, colección `tipos`.
+Servicio web que valida si una fecha es festiva en Colombia, usando la base de datos `festivos`, colección `tipos`.
 
 ## Ejecución
 

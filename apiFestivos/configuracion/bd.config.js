@@ -5,7 +5,7 @@
 module.exports = {
     SERVIDOR: process.env.DB_HOST || '127.0.0.1',
     PUERTO: process.env.DB_PORT || '27017',
-    BASEDATOS: process.env.DB_NAME || 'Festivos',
+    BASEDATOS: process.env.DB_NAME || 'festivos',
     USUARIO: process.env.DB_USER || '',
     CLAVE: process.env.DB_PASS || '',
 
