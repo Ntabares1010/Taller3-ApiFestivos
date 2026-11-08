@@ -20,6 +20,24 @@ class FestivoControlador {
             });
         }
     }
+
+    async obtenerPorAnio({ params }, respuesta) {
+        try {
+            const anio = Number(params.anio);
+            if (!anio || isNaN(anio) || anio < 1900 || anio > 2100) {
+                return respuesta.status(400).json({
+                    mensaje: "Año no válido"
+                });
+            }
+
+            const festivos = await festivoServicio.listarFestivosDto(anio);
+            return respuesta.json(festivos);
+        } catch (error) {
+            return respuesta.status(500).json({
+                mensaje: "Error obteniendo los festivos del año"
+            });
+        }
+    }
 }
 
 module.exports = new FestivoControlador();

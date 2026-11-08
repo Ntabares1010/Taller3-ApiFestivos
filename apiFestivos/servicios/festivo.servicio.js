@@ -38,6 +38,23 @@ class FestivoServicio {
     }
 
     /**
+     * Retorna los festivos en formato DTO para consumo de la API de Calendario Laboral:
+     * [ { festivo: "Año nuevo", fecha: "2023-01-01" }, ... ]
+     */
+    async listarFestivosDto(anio) {
+        const festivos = await this.obtenerFestivos(anio);
+        return festivos.map(f => {
+            const yyyy = f.fecha.getFullYear();
+            const mm = String(f.fecha.getMonth() + 1).padStart(2, '0');
+            const dd = String(f.fecha.getDate()).padStart(2, '0');
+            return {
+                festivo: f.nombre,
+                fecha: `${yyyy}-${mm}-${dd}`
+            };
+        });
+    }
+
+    /**
      * Indica si la fecha dada corresponde a un festivo
      */
     async esFestivo(anio, mes, dia) {
